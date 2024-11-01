@@ -9,10 +9,12 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
 import MenuItem from '@mui/material/MenuItem'
 import AdbIcon from '@mui/icons-material/Adb'
-import Button from '../Button'
-const pages = ['Products', 'Customer', 'Pricing', 'Learning']
+import Button from '../../common/components/Button'
+import { useTheme } from '@emotion/react'
+const PAGES = ['Products', 'Customer', 'Pricing', 'Learning']
 
 function ApplicationAppBar() {
+  const theme = useTheme()
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -27,13 +29,13 @@ function ApplicationAppBar() {
     <AppBar
       position="static"
       style={{
-        backgroundColor: 'white',
+        backgroundColor: theme.palette.custom.lightSky,
         color: 'black',
         boxShadow: 'none',
         width: '100%',
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth={false}>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
@@ -81,7 +83,7 @@ function ApplicationAppBar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {pages.map((page) => (
+              {PAGES.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography sx={{ textAlign: 'center', color: 'black' }}>
                     {page}
@@ -115,7 +117,7 @@ function ApplicationAppBar() {
               display: { xs: 'none', md: 'flex', marginLeft: '24px' },
             }}
           >
-            {pages.map((page) => (
+            {PAGES.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}

@@ -5,6 +5,7 @@ import { ButtonProps as MUIButtonProps } from '@mui/material/Button'
 
 const RoundedButton = styled(MUIButton)(({ theme }) => ({
   borderRadius: '8px',
+  textTransform: 'none',
   '&:hover': {
     borderColor: theme.palette.secondary.main,
   },
