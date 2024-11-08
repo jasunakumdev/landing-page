@@ -14,7 +14,7 @@ interface CustomPalette extends PaletteOptions {
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#298e9e',
+      main: '#2A8E9E',
     },
     secondary: {
       main: '#999da0',

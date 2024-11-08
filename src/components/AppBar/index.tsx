@@ -11,10 +11,15 @@ import MenuItem from '@mui/material/MenuItem'
 import AdbIcon from '@mui/icons-material/Adb'
 import Button from '../../common/components/Button'
 import { useTheme } from '@emotion/react'
+import Logo from '../../assets/logo-99.png'
+import { useMediaQuery } from '@mui/material'
+
 const PAGES = ['Products', 'Customer', 'Pricing', 'Learning']
 
 function ApplicationAppBar() {
   const theme = useTheme()
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('xs'))
+  console.log('isMobile--->', isMobile)
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -37,7 +42,10 @@ function ApplicationAppBar() {
     >
       <Container maxWidth={false}>
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {!isMobile && ( // Only render logo if not on mobile
+            <img src={Logo} height={30} alt="Logo" />
+          )}
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -54,7 +62,7 @@ function ApplicationAppBar() {
             }}
           >
             LOGO
-          </Typography>
+          </Typography> */}
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
