@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, useTheme } from '@mui/material'
 import Grid from '@mui/material/Grid2'
 import Link from '@mui/material/Link'
 import Logo from '../../assets/Logo-48.png'
@@ -7,6 +7,7 @@ import Facebook from '../../assets/facebook.svg'
 import LinkedIn from '../../assets/linkedin.svg'
 
 const Actions = () => {
+  const theme = useTheme()
   return (
     <Box
       sx={{
@@ -14,6 +15,7 @@ const Actions = () => {
         paddingLeft: { xs: '16px', md: '48px', lg: '96px' },
         paddingRight: { xs: '16px', md: '48px', lg: '96px' },
         marginTop: { xs: '16px' },
+        backgroundColor: theme.palette.custom.lightSky,
       }}
     >
       <Grid container spacing={3}>

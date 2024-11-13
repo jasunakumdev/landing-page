@@ -15,7 +15,11 @@ import Footer from './components/Footer'
 // https://dribbble.com/shots/24820686-Finpay-Fintech-Landing-Page
 function App() {
   return (
-    <Container maxWidth={false} sx={{ width: '100%' }}>
+    <Container
+      maxWidth={false}
+      disableGutters
+      sx={{ width: '100%', paddingLeft: 0, paddingRight: 0 }}
+    >
       <ApplicationAppBar />
       <Payments />
       <FuturePayment />
@@ -24,9 +28,7 @@ function App() {
       <AccountSteps />
       <Mission />
       <Revenue />
-
       <Plans />
-
       <PaymentProcess />
       <Actions />
       <Footer />

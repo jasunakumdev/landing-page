@@ -6,9 +6,7 @@ const WhyUs = () => {
     <Box>
       <Grid container p={5}>
         <Grid display="flex" justifyContent="center" size={12}>
-          <Typography color="primary" fontWeight="bold">
-            WHY US
-          </Typography>
+          <Typography color="primary">WHY US</Typography>
         </Grid>
 
         <Grid display="flex" justifyContent="center" size={12}>

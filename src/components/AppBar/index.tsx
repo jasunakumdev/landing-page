@@ -8,7 +8,6 @@ import Menu from '@mui/material/Menu'
 import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
 import MenuItem from '@mui/material/MenuItem'
-import AdbIcon from '@mui/icons-material/Adb'
 import Button from '../../common/components/Button'
 import { useTheme } from '@emotion/react'
 import Logo from '../../assets/logo-99.png'
@@ -18,8 +17,7 @@ const PAGES = ['Products', 'Customer', 'Pricing', 'Learning']
 
 function ApplicationAppBar() {
   const theme = useTheme()
-  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('xs'))
-  console.log('isMobile--->', isMobile)
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -42,27 +40,7 @@ function ApplicationAppBar() {
     >
       <Container maxWidth={false}>
         <Toolbar disableGutters>
-          {!isMobile && ( // Only render logo if not on mobile
-            <img src={Logo} height={30} alt="Logo" />
-          )}
-          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'black',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography> */}
+          {!isMobile && <img src={Logo} height={30} alt="Logo" />}
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -100,25 +78,9 @@ function ApplicationAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+            <img src={Logo} height={30} alt="Logo" />
+          </Box>
           <Box
             sx={{
               flexGrow: 1,
@@ -141,11 +103,17 @@ function ApplicationAppBar() {
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
+          <Box
+            sx={{ flexGrow: 1 }}
+            display="flex"
+            align-items="center"
+            justifyContent="end"
+          >
             <Button
               variant="outlined"
               sx={{ marginRight: 1, textTransform: 'none' }}
               color="secondary"
+              size="small"
             >
               Login
             </Button>
@@ -153,6 +121,7 @@ function ApplicationAppBar() {
               variant="contained"
               sx={{ textTransform: 'none' }}
               color="primary"
+              size="small"
             >
               Sign Up
             </Button>

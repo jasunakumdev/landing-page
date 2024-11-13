@@ -42,7 +42,7 @@ const PaymentProcess = () => {
               variant="outlined"
               color="primary"
               size="large"
-              sx={classes.button}
+              sx={{ ...classes.button, marginLeft: { xl: '16px' } }}
             >
               Learn More
               <ArrowOutwardOutlinedIcon sx={{ marginLeft: '8px' }} />

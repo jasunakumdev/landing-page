@@ -11,14 +11,31 @@ const Mission = () => {
           </Typography>
         </Grid>
 
-        <Grid display="flex" justifyContent="center" size={12} py={2}>
-          <Typography sx={{ fontSize: { xs: '24px', md: '48px' } }}>
+        <Grid
+          display="flex"
+          justifyContent="center"
+          size={12}
+          py={2}
+          textAlign="center"
+        >
+          <Typography sx={{ fontSize: { xs: '36px', md: '48px' } }}>
             We've helped innovate companies
           </Typography>
         </Grid>
 
-        <Grid display="flex" justifyContent="center" size={12}>
-          <Typography sx={{ fontSize: '24px' }}>
+        <Grid
+          display="flex"
+          justifyContent="center"
+          size={12}
+          textAlign="center"
+        >
+          <Typography
+            sx={{
+              fontSize: { xs: '16px', md: '24px' },
+              width: { xs: '90%', md: '60%', xl: '60%' },
+            }}
+            color="secondary"
+          >
             Hundreds of all sizes and across all industries have made a big
             improvements with us.
           </Typography>

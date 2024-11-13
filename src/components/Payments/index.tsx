@@ -1,26 +1,20 @@
 import Grid from '@mui/material/Grid2'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
-import { Typography, styled, useTheme } from '@mui/material'
+import { Typography, useTheme } from '@mui/material'
 import OutlinedInput from '@mui/material/OutlinedInput'
 import InputAdornment from '@mui/material/InputAdornment'
 import Button from '../../common/components/Button'
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward'
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
-import CreditCardIcon from '@mui/icons-material/CreditCard'
-import Radio from '@mui/material/Radio'
 import React, { useState } from 'react'
 import CreditCardPopover from './CreditCardPopover'
-
-const BoxStyle = styled(Box)(({ theme }) => ({
-  flexGrow: 1,
-  paddingLeft: '24px',
-  paddingRight: '24px',
-  backgroundColor: theme.palette.custom.lightSky,
-}))
+import usePaymentStyles from './paymentStyle'
+import PaymentType from './PaymentType'
 
 const Payments = () => {
   const theme = useTheme()
+  const classes = usePaymentStyles()
   const [selectedValue, setSelectedValue] = useState('card')
   const [anchorEl, setAnchorEl] = React.useState<HTMLInputElement | null>(null)
 
@@ -37,14 +31,9 @@ const Payments = () => {
   }
 
   return (
-    <BoxStyle>
+    <Box sx={classes.container}>
       <Grid container spacing={2}>
-        <Grid
-          size={{ xs: 12, md: 6, lg: 6 }}
-          sx={{
-            padding: { xs: '12px', md: '64px' },
-          }}
-        >
+        <Grid size={{ xs: 12, md: 6, lg: 6 }} sx={classes.gridBox}>
           <Typography variant="h1" fontSize={'4rem'}>
             Get Paid early
           </Typography>
@@ -67,34 +56,25 @@ const Payments = () => {
             id="get-started"
             type={'text'}
             placeholder="Your bussiness email"
-            sx={{
-              padding: '0px',
-              height: '45px',
-              borderRadius: '12px',
-              width: '80%',
-              maxWidth: '500px',
-            }}
+            sx={classes.searchInput}
             endAdornment={
               <InputAdornment position="end">
                 <Button
                   variant="contained"
                   color="primary"
-                  sx={{ height: '45px' }}
+                  sx={{ height: '45px', marginRight: '4px' }}
                 >
-                  Get Started{' '}
+                  Get Started
                   <ArrowOutwardIcon style={{ paddingLeft: '4px' }} />
                 </Button>
               </InputAdornment>
             }
           />
           <Grid
-            //width="80%"
             py={3}
             display={'flex'}
             justifyContent="space-between"
-            sx={{
-              width: { xs: '100%', md: '80%' },
-            }}
+            sx={classes.branding}
           >
             {['Klarna', 'Coinbase', 'Instacart'].map((text, index) => (
               <Typography
@@ -115,17 +95,10 @@ const Payments = () => {
           }}
           justifyContent="center"
         >
-          <Paper
-            elevation={1}
-            sx={{
-              maxWidth: { xs: '100%', md: '60%' },
-              padding: '16px',
-              borderRadius: '16px',
-            }}
-          >
+          <Paper elevation={1} sx={classes.paymentContainer}>
             <Box display="flex" alignItems="center">
               <Box mr={1}>
-                <AccountBalanceIcon fontSize="large" color="primary" />
+                <AccountBalanceIcon sx={{ fontSize: '36px' }} color="primary" />
               </Box>
               <Box>
                 <Typography
@@ -143,14 +116,7 @@ const Payments = () => {
                 </Typography>
               </Box>
             </Box>
-            <Box
-              sx={{
-                marginTop: '8px',
-                border: `1px solid #e9e9e9`,
-                borderRadius: '8px',
-                padding: '8px',
-              }}
-            >
+            <Box sx={classes.invoceDetails}>
               <Typography
                 variant="caption"
                 color={theme.palette.secondary.main}
@@ -167,66 +133,21 @@ const Payments = () => {
                 October 20, 2024
               </Typography>
             </Box>
-            <Box
-              sx={{
-                marginTop: '8px',
-                border: `1px solid #e9e9e9`,
-                borderRadius: '8px',
-                padding: '8px',
-                height: '20px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                paddingTop: '12px',
-                paddingBottom: '12px',
-              }}
-            >
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <CreditCardIcon />
-                <Typography px={1} variant="subtitle2">
-                  Credit Card
-                </Typography>
-              </Box>
-              <Radio
-                checked={selectedValue === 'card'}
-                onChange={(event) => {
-                  handleChange(event)
-                  handleClick(event)
-                }}
-                value="card"
-                name="radio-buttons"
-                inputProps={{ 'aria-label': 'Credit Card' }}
-                style={{ textAlign: 'right' }}
-              />
-            </Box>
-            <Box
-              sx={{
-                marginTop: '8px',
-                border: `1px solid #e9e9e9`,
-                borderRadius: '8px',
-                padding: '8px',
-                height: '20px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                paddingTop: '12px',
-                paddingBottom: '12px',
-              }}
-            >
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <AccountBalanceIcon />
-                <Typography px={1} variant="subtitle2">
-                  Bank Account
-                </Typography>
-              </Box>
-              <Radio
-                checked={selectedValue === 'bank'}
-                onChange={handleChange}
-                value="bank"
-                name="radio-buttons"
-                inputProps={{ 'aria-label': 'Bank Account' }}
-              />
-            </Box>
+
+            <PaymentType
+              selectedValue={selectedValue}
+              handleChange={handleChange}
+              handleClick={handleClick}
+              name="Credit Card"
+              type="card"
+            />
+            <PaymentType
+              selectedValue={selectedValue}
+              handleChange={handleChange}
+              handleClick={handleClick}
+              name="Bank Account"
+              type="bank"
+            />
             <Box py={2}>
               <Button fullWidth variant="contained" color="primary">
                 Pay
@@ -236,7 +157,7 @@ const Payments = () => {
         </Grid>
       </Grid>
       <CreditCardPopover anchorEl={anchorEl} handleClose={handleClose} />
-    </BoxStyle>
+    </Box>
   )
 }
 

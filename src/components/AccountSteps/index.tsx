@@ -1,38 +1,25 @@
 import { useTheme } from '@emotion/react'
 import { Box, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid2'
+import useAccountStepStyle from './accountStepStyle'
+import StepCard from './StepCard'
 
 const AccountSteps = () => {
   const theme = useTheme()
+  const classes = useAccountStepStyle()
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        paddingLeft: { xs: '16px', md: '96px' },
-        paddingRight: { xs: '16px', md: '96px' },
-        backgroundColor: (theme) => theme.palette.custom.lightBlue,
-      }}
-    >
-      <Grid
-        container
-        p={10}
-        sx={{
-          boxShadow: '0px 16px 12px rgba(0, 0, 0, 0.1)',
-
-          padding: '80px',
-        }}
-        spacing={3}
-      >
-        <Grid size={{ xs: 12, md: 12, lg: 12 }}>
+    <Box sx={classes.main}>
+      <Grid container sx={classes.conatiner} spacing={3}>
+        <Grid size={12}>
           <Typography color="primary" fontWeight="bold">
             STEP
           </Typography>
         </Grid>
 
-        <Grid size={{ xs: 12, md: 12, lg: 12 }}>
+        <Grid size={12}>
           <Typography
             sx={{
-              fontSize: '48px',
+              fontSize: { xs: '24px', md: '48px' },
               color: theme.palette.custom.white,
             }}
           >
@@ -40,92 +27,21 @@ const AccountSteps = () => {
           </Typography>
         </Grid>
 
-        <Grid
-          size={{ xs: 12, md: 4, lg: 4 }}
-          sx={{ backgroundColor: '#0b3a4e' }}
-          p={4}
-        >
-          <Box>
-            <Typography
-              sx={{
-                fontSize: '96px',
-                color: '#B2BAC6',
-                fontWeight: 700,
-              }}
-            >
-              1
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: '32px',
-                color: theme.palette.custom.white,
-              }}
-            >
-              Open your account
-            </Typography>
-            <Typography color={theme.palette.secondary.main}>
-              Sign up to finpay and set up your account from the dashboard.
-            </Typography>
-          </Box>
-        </Grid>
-
-        <Grid
-          size={{ xs: 12, md: 4, lg: 4 }}
-          sx={{ backgroundColor: '#0b3a4e' }}
-          p={4}
-        >
-          <Box>
-            <Typography
-              sx={{
-                fontSize: '96px',
-                color: '#B2BAC6',
-                fontWeight: 700,
-              }}
-            >
-              2
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: '32px',
-                color: theme.palette.custom.white,
-              }}
-            >
-              Transfer your money
-            </Typography>
-            <Typography color={theme.palette.secondary.main}>
-              Move money from to another account into and start to earning up.
-            </Typography>
-          </Box>
-        </Grid>
-
-        <Grid
-          size={{ xs: 12, md: 4, lg: 4 }}
-          sx={{ backgroundColor: '#0b3a4e' }}
-          p={4}
-        >
-          <Box>
-            <Typography
-              sx={{
-                fontSize: '96px',
-                color: '#B2BAC6',
-                fontWeight: 700,
-              }}
-            >
-              3
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: '32px',
-                color: theme.palette.custom.white,
-              }}
-            >
-              Watch your balance grow
-            </Typography>
-            <Typography color={theme.palette.secondary.main}>
-              Accessed instantly and remain insulated from market volatility.
-            </Typography>
-          </Box>
-        </Grid>
+        <StepCard
+          number={1}
+          title="Open your account"
+          description="Sign up to finpay and set up your account from the dashboard."
+        />
+        <StepCard
+          number={2}
+          title="Transfer your money"
+          description="Move money from to another account into and start to earning up."
+        />
+        <StepCard
+          number={3}
+          title="Watch your balance grow"
+          description="Accessed instantly and remain insulated from market volatility."
+        />
       </Grid>
     </Box>
   )

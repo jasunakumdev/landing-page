@@ -8,9 +8,15 @@ const Footer = () => {
     <Box
       sx={{
         borderTop: `1px solid ${theme.palette.secondary.main}`,
+        backgroundColor: theme.palette.custom.lightSky,
       }}
     >
-      <Grid display="flex" justifyContent="center" size={12} my={4}>
+      <Grid
+        display="flex"
+        justifyContent="center"
+        size={12}
+        sx={{ padding: '32px' }}
+      >
         <Typography>
           &copy; Finpay {currentYear}. All Rights Reserved.
         </Typography>

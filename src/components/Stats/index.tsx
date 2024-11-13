@@ -1,35 +1,19 @@
 import { useTheme } from '@emotion/react'
-import { Box, Typography, styled } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid2'
 import AccountBalanceOutlinedIcon from '@mui/icons-material/AccountBalanceOutlined'
-import TrendingFlatOutlinedIcon from '@mui/icons-material/TrendingFlatOutlined'
 import ContactlessOutlinedIcon from '@mui/icons-material/ContactlessOutlined'
-
-const BoxStyle = styled(Box)(({ theme }) => ({
-  flexGrow: 1,
-  paddingLeft: '96px',
-  paddingRight: '96px',
-}))
+import Linechart from './Linechart'
+import ArrowImage from '../../assets/arrow.png'
+import useStatStyles from './statStyles'
 
 const Stats = () => {
   const theme = useTheme()
+  const classes = useStatStyles()
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        paddingLeft: { xs: '16px', md: '96px' },
-        paddingRight: { xs: '16px', md: '96px' },
-      }}
-    >
-      <Grid container xs={{ padding: { xs: '16px', md: '40px' } }} spacing={3}>
-        <Grid
-          size={{ xs: 12, md: 6, lg: 6 }}
-          sx={{
-            backgroundColor: theme.palette.custom.lightSky,
-            padding: { xs: '36px', md: '64px' },
-            borderRadius: '32px',
-          }}
-        >
+    <Box sx={classes.container}>
+      <Grid container spacing={3}>
+        <Grid size={{ xs: 12, md: 6, lg: 6 }} sx={classes.cardGrid}>
           <Typography
             sx={{ fontSize: '80px' }}
             color="primary"
@@ -42,18 +26,11 @@ const Stats = () => {
           </Typography>
         </Grid>
 
-        <Grid
-          size={{ xs: 12, md: 6, lg: 6 }}
-          sx={{
-            backgroundColor: theme.palette.custom.lightSky,
-            padding: { xs: '36px', md: '64px' },
-            borderRadius: '32px',
-          }}
-        >
+        <Grid size={{ xs: 12, md: 6, lg: 6 }} sx={classes.cardGrid}>
           <Typography sx={{ fontSize: '32px' }}>
             Instant Withdraw your funds at any time
           </Typography>
-          <Box display="flex" justifyContent="center">
+          <Box display="flex" justifyContent="center" marginTop="36px">
             <ContactlessOutlinedIcon
               sx={{ fontSize: '80px' }}
               color="primary"
@@ -65,10 +42,7 @@ const Stats = () => {
               alignItems="center"
               minWidth="120px"
             >
-              <TrendingFlatOutlinedIcon sx={{ fontSize: '48px', mb: 0.5 }} />
-              <TrendingFlatOutlinedIcon
-                sx={{ transform: 'rotate(180deg)', fontSize: '48px' }}
-              />
+              <img src={ArrowImage} width="80%" />
             </Box>
 
             <AccountBalanceOutlinedIcon
@@ -78,15 +52,8 @@ const Stats = () => {
           </Box>
         </Grid>
 
-        <Grid
-          size={12}
-          sx={{
-            backgroundColor: theme.palette.custom.lightSky,
-            borderRadius: '32px',
-            padding: '64px',
-          }}
-        >
-          <Grid size={4}>
+        <Grid container size={12} sx={classes.text}>
+          <Grid size={{ xs: 12, md: 4, lg: 4 }} alignSelf="center">
             <Typography
               sx={{
                 fontSize: '36px',
@@ -104,7 +71,19 @@ const Stats = () => {
               investments.
             </Typography>
           </Grid>
-          <Grid size={8}></Grid>
+          <Grid size={{ xs: 12, md: 8, lg: 8 }}>
+            <Box marginLeft="24px">
+              <Typography>Summary</Typography>
+              <Typography
+                sx={{
+                  fontSize: '34px',
+                }}
+              >
+                $1,876,580
+              </Typography>
+            </Box>
+            <Linechart />
+          </Grid>
         </Grid>
       </Grid>
     </Box>
