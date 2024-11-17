@@ -24,10 +24,21 @@ const PaymentType: React.FC<PaymentTypeProps> = ({
   const classes = usePaymentStyles()
 
   return (
-    <Box sx={classes.cardType}>
+    <Box
+      sx={classes.cardType}
+      role="group"
+      aria-labelledby={`payment-type-${type}-label`}
+      aria-describedby={`payment-type-${type}-description`}
+    >
       <Box display="flex" justifyContent="center" alignItems="center">
         {type === 'card' ? <CreditCardIcon /> : <AccountBalanceIcon />}
-        <Typography px={1} variant="subtitle2">
+        <Typography
+          id={`payment-type-${type}-label`}
+          px={1}
+          variant="subtitle2"
+          tabIndex={0}
+          aria-label={`Payment method: ${name}`}
+        >
           {name}
         </Typography>
       </Box>
@@ -39,7 +50,9 @@ const PaymentType: React.FC<PaymentTypeProps> = ({
         }}
         value={type}
         name="radio-buttons"
-        inputProps={{ 'aria-label': 'Credit Card' }}
+        inputProps={{
+          'aria-label': type === 'card' ? 'Credit Card' : 'Bank Account',
+        }}
         style={{ textAlign: 'right' }}
       />
     </Box>

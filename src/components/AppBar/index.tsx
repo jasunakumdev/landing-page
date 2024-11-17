@@ -9,9 +9,8 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
 import MenuItem from '@mui/material/MenuItem'
 import Button from '../../common/components/Button'
-import { useTheme } from '@emotion/react'
 import Logo from '../../assets/logo-99.png'
-import { useMediaQuery } from '@mui/material'
+import { useMediaQuery, useTheme } from '@mui/material'
 
 const PAGES = ['Products', 'Customer', 'Pricing', 'Learning']
 
@@ -42,7 +41,7 @@ function ApplicationAppBar() {
         <Toolbar disableGutters>
           {!isMobile && <img src={Logo} height={30} alt="Logo" />}
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -79,7 +78,7 @@ function ApplicationAppBar() {
             </Menu>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <img src={Logo} height={30} alt="Logo" />
+            <img src={Logo} height={25} alt="Logo" />
           </Box>
           <Box
             sx={{
@@ -112,7 +111,6 @@ function ApplicationAppBar() {
             <Button
               variant="outlined"
               sx={{ marginRight: 1, textTransform: 'none' }}
-              color="secondary"
               size="small"
             >
               Login

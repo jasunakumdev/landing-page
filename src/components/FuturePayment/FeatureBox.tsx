@@ -15,12 +15,15 @@ const FeatureBox: React.FC<FeatureBoxProps> = ({
   const theme = useTheme()
   return (
     <Grid size={{ xs: 12, md: 4, lg: 4 }}>
-      <Box mt={8}>
+      <Box mt={8} p={1}>
         {icon}
-        <Typography fontSize="32px">{title}</Typography>
+        <Typography fontSize="30px" mb={1}>
+          {title}
+        </Typography>
         <Typography
-          style={{ fontSize: '20px' }}
+          style={{ fontSize: '16px' }}
           color={theme.palette.secondary.main}
+          width="90%"
         >
           {description}
         </Typography>

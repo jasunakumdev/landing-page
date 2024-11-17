@@ -42,7 +42,7 @@ const usePaymentStyles = () => {
       padding: '32px',
       borderRadius: '16px',
     },
-    invoceDetails: {
+    invoiceDetails: {
       marginTop: '8px',
       border: `1px solid #e9e9e9`,
       borderRadius: '8px',

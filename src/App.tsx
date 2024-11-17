@@ -1,6 +1,7 @@
-import './App.css'
-import ApplicationAppBar from './components/AppBar'
+import { motion, useScroll } from 'framer-motion'
+import { useTheme } from '@mui/material'
 import Container from '@mui/material/Container'
+import ApplicationAppBar from './components/AppBar'
 import Payments from './components/Payments'
 import FuturePayment from './components/FuturePayment'
 import WhyUs from './components/WhyUs'
@@ -12,27 +13,41 @@ import Plans from './components/Plans'
 import PaymentProcess from './components/PaymentProcess'
 import Actions from './components/Actions'
 import Footer from './components/Footer'
-// https://dribbble.com/shots/24820686-Finpay-Fintech-Landing-Page
+
+import './App.css'
+
 function App() {
+  const { scrollYProgress } = useScroll()
+  const theme = useTheme()
+
   return (
-    <Container
-      maxWidth={false}
-      disableGutters
-      sx={{ width: '100%', paddingLeft: 0, paddingRight: 0 }}
-    >
-      <ApplicationAppBar />
-      <Payments />
-      <FuturePayment />
-      <WhyUs />
-      <Stats />
-      <AccountSteps />
-      <Mission />
-      <Revenue />
-      <Plans />
-      <PaymentProcess />
-      <Actions />
-      <Footer />
-    </Container>
+    <>
+      <motion.div
+        className="progress-bar"
+        style={{
+          scaleX: scrollYProgress,
+          background: theme.palette.primary.main,
+        }}
+      />
+      <Container
+        maxWidth={false}
+        disableGutters
+        sx={{ width: '100%', paddingLeft: 0, paddingRight: 0 }}
+      >
+        <ApplicationAppBar />
+        <Payments />
+        <FuturePayment />
+        <WhyUs />
+        <Stats />
+        <AccountSteps />
+        <Mission />
+        <Revenue />
+        <Plans />
+        <PaymentProcess />
+        <Actions />
+        <Footer />
+      </Container>
+    </>
   )
 }
 

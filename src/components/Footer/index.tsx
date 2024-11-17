@@ -10,6 +10,9 @@ const Footer = () => {
         borderTop: `1px solid ${theme.palette.secondary.main}`,
         backgroundColor: theme.palette.custom.lightSky,
       }}
+      component="footer"
+      role="contentinfo"
+      aria-label="Footer"
     >
       <Grid
         display="flex"
@@ -17,7 +20,15 @@ const Footer = () => {
         size={12}
         sx={{ padding: '32px' }}
       >
-        <Typography>
+        <Typography
+          component="p"
+          aria-live="polite"
+          sx={{
+            textAlign: 'center',
+            color: theme.palette.text.primary,
+            fontSize: '16px',
+          }}
+        >
           &copy; Finpay {currentYear}. All Rights Reserved.
         </Typography>
       </Grid>

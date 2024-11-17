@@ -1,13 +1,30 @@
-import { createTheme, PaletteOptions } from '@mui/material/styles'
+import { createTheme } from '@mui/material/styles'
 
-interface CustomPalette extends PaletteOptions {
-  custom?: {
-    lightBlue: string
-    darkBlue: string
-    lightGreen: string
-    darkGreen: string
-    lightRed: string
-    darkRed: string
+declare module '@mui/material/styles' {
+  interface Palette {
+    custom: {
+      lightBlue: string
+      darkBlue: string
+      lightGreen: string
+      darkGreen: string
+      lightRed: string
+      darkRed: string
+      white: string
+      lightSky: string
+    }
+  }
+
+  interface PaletteOptions {
+    custom?: {
+      lightBlue: string
+      darkBlue: string
+      lightGreen: string
+      darkGreen: string
+      lightRed: string
+      darkRed: string
+      white: string
+      lightSky: string
+    }
   }
 }
 
@@ -52,7 +69,7 @@ const theme = createTheme({
       white: '#fff',
       lightSky: '#f5f9f9',
     },
-  } as CustomPalette,
+  },
   typography: {
     h1: {
       fontSize: '2rem',

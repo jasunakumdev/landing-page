@@ -5,10 +5,10 @@ const Linechart = () => {
   const theme = useTheme()
   return (
     <LineChart
-      xAxis={[{ data: [1, 2, 3, 5, 8, 10, 12] }]}
+      xAxis={[{ data: [1000, 2000, 3000, 5000, 7000, 10000, 12000] }]}
       series={[
         {
-          data: [2, 5, 7, 11, 16, 20, 25],
+          data: [1000, 2000, 3000, 5000, 8000, 10000, 12000],
           area: true,
         },
       ]}

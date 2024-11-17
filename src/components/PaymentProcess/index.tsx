@@ -7,10 +7,24 @@ import usePaymentProcessStyles from './paymentProcessStyle'
 const PaymentProcess = () => {
   const classes = usePaymentProcessStyles()
   return (
-    <Box sx={classes.container}>
+    <Box
+      component="section"
+      role="region"
+      aria-labelledby="payment-process-heading"
+      sx={classes.container}
+    >
       <Grid container p={10} sx={classes.gridBox}>
-        <Grid size={{ xs: 6, md: 6, lg: 6 }} sx={{ marginBottom: '8px' }}>
-          <Typography color="primary" fontWeight="bold">
+        <Grid
+          size={{ xs: 6, md: 6, lg: 6 }}
+          sx={{ marginBottom: '8px' }}
+          role="heading"
+          aria-level={1}
+        >
+          <Typography
+            color="primary"
+            fontWeight="bold"
+            id="payment-process-heading"
+          >
             TRY IT NOW
           </Typography>
         </Grid>
@@ -18,11 +32,20 @@ const PaymentProcess = () => {
         <Grid
           size={{ xs: 12, md: 8, lg: 8 }}
           sx={{ maxWidth: { xs: '100%', md: '100%', lg: '60%' } }}
+          aria-labelledby="payment-description-title"
+          aria-describedby="payment-description-details"
         >
-          <Typography sx={classes.typographyMain}>
+          <Typography
+            sx={classes.typographyMain}
+            id="payment-description-title"
+          >
             Ready to level up your payment process?
           </Typography>
-          <Typography color="secondary" sx={{ marginBottom: '16px' }}>
+          <Typography
+            color="secondary"
+            sx={{ marginBottom: '16px' }}
+            id="payment-description-details"
+          >
             Support small business with simple invoicing, powerful integrtions,
             and cash flow management tools.
           </Typography>
@@ -35,6 +58,7 @@ const PaymentProcess = () => {
               color="primary"
               size="large"
               sx={classes.button}
+              aria-label="Get started now to explore payment options"
             >
               Get Started Now
             </Button>
@@ -43,9 +67,13 @@ const PaymentProcess = () => {
               color="primary"
               size="large"
               sx={{ ...classes.button, marginLeft: { xl: '16px' } }}
+              aria-label="Learn more about payment tools and services"
             >
               Learn More
-              <ArrowOutwardOutlinedIcon sx={{ marginLeft: '8px' }} />
+              <ArrowOutwardOutlinedIcon
+                sx={{ marginLeft: '8px' }}
+                aria-hidden="true"
+              />
             </Button>
           </Box>
         </Grid>
