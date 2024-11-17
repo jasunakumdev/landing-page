@@ -14,7 +14,7 @@ const StepCard: React.FC<StepCardProps> = ({ number, title, description }) => {
   return (
     <Grid
       size={{ xs: 12, md: 4, lg: 4 }}
-      sx={{ backgroundColor: '#0b3a4e' }}
+      sx={{ backgroundColor: theme.palette.custom.cardColor }}
       p={4}
       key={title}
       role="region"
@@ -29,7 +29,7 @@ const StepCard: React.FC<StepCardProps> = ({ number, title, description }) => {
             fontSize: '96px',
             color: '#B2BAC6',
             fontWeight: 700,
-            background: 'linear-gradient(to bottom, #eee, #0b3a4e)',
+            background: `linear-gradient(to bottom, #eee, ${theme.palette.custom.cardColor})`,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
           }}

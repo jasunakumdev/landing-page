@@ -4,6 +4,7 @@ declare module '@mui/material/styles' {
   interface Palette {
     custom: {
       lightBlue: string
+      cardColor: string
       darkBlue: string
       lightGreen: string
       darkGreen: string
@@ -17,6 +18,7 @@ declare module '@mui/material/styles' {
   interface PaletteOptions {
     custom?: {
       lightBlue: string
+      cardColor: string
       darkBlue: string
       lightGreen: string
       darkGreen: string
@@ -61,6 +63,7 @@ const theme = createTheme({
     },
     custom: {
       lightBlue: '#043247',
+      cardColor: '#0b3a4e',
       darkBlue: '#0288d1',
       lightGreen: '#8bc34a',
       darkGreen: '#388e3c',
