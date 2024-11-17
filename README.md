@@ -9,8 +9,13 @@ The **FinPay Web Application** is a modern, fully responsive platform designed t
 The project leverages the following cutting-edge technologies:
 
 1. **React.js**: A JavaScript library for building user interfaces efficiently with reusable components.
-2. **Vite**: A fast and modern build tool that optimizes development and production workflows.
-3. **Chart.js**: A powerful JavaScript library for creating interactive and visually appealing charts to represent data effectively.
+
+2. **Material UI**: Material UI is an open-source React component library that implements Google's Material Design. It's comprehensive and can be used in production out of the box.
+
+3. **Vite**: A fast and modern build tool that optimizes development and production workflows.
+
+4. **mui/x-charts**.
+5. **framer-motion**.
 
 ## Features
 
@@ -56,6 +61,10 @@ The production files will be available in the dist directory. Deploy these files
 ## Responsive Design
 
 ![FinPay Dashboard](src/assets/Design%20Screen%20.png 'FinPay Dashboard Screenshot')
+
+## Lighthouse Report
+
+![FinPay Dashboard](src/assets/Lighthouse%20Report.png 'FinPay Dashboard Screenshot')
 
 ## Full Screen
 
