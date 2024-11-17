@@ -25,11 +25,13 @@ The project leverages the following cutting-edge technologies:
 ## How to Start the Project
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/your-repo/finpay-web.git
    cd finpay-web
 
    ```
+
 2. Install dependencies:
 
    ```bash
@@ -50,3 +52,11 @@ The project leverages the following cutting-edge technologies:
    ```
 
 The production files will be available in the dist directory. Deploy these files to your hosting provider.
+
+## Responsive Design
+
+![FinPay Dashboard](src/assets/Design%20Screen%20.png 'FinPay Dashboard Screenshot')
+
+## Full Screen
+
+![FinPay Dashboard](src/assets/full-screen.png 'FinPay Dashboard Screenshot')
